@@ -1,5 +1,5 @@
 ﻿using System;
-using Simple.Testing.Framework;
+using Simple.Testing.ClientFramework;
 
 namespace Simple.Testing.Example
 {
@@ -10,27 +10,25 @@ namespace Simple.Testing.Example
      */
     public class ActionSpecifications
     {
-        public Specification when_withdrawing_money_from_empty_account = new ActionSpecification<Depositor>
+        public Specification when_withdrawing_money_from_empty_account()
         {
-            On = () => new Depositor(13),
-            When = DepositorAction,
-            Expect =
-                                   {
-                                       depositor => depositor.Balance > 0.01m,
-                                       depositor => depositor.AccountIsOpen,
-                                       depositor => depositor.Balance < .50m * GetOverallCount() / 17
-                                   },
-        };
+            return new ActionSpecification<Depositor>
+                       {
+                           On = () => new Depositor(13),
+                           When = depositor => depositor.Withdraw(50.00m),
+                           Expect =
+                               {
+                                   depositor => depositor.Balance > 0.01m,
+                                   depositor => depositor.AccountIsOpen,
+                                   depositor => depositor.Balance > .50m
+                               },
+                       };
+        }
 
         private static decimal GetOverallCount()
         {
             return 12;
         }
-
-		private static void DepositorAction(Depositor depositor)
-		{
-			depositor.Withdraw(50m);
-		}
     }
 
 

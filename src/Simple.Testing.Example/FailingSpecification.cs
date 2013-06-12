@@ -1,5 +1,5 @@
 ﻿using System;
-using Simple.Testing.Framework;
+using Simple.Testing.ClientFramework;
 
 namespace Simple.Testing.Example
 {
@@ -17,16 +17,19 @@ namespace Simple.Testing.Example
      */
     public class FailingSpecification
     {
-        public Specification it_will_fail = new FailingSpecification<FailingExample, SomethingFailedException>
-                                                {
+        public Specification it_will_fail()
+        {
+            return new FailingSpecification < FailingExample, SomethingFailedException >
+            {
                 On = () => new FailingExample(),
                 When = (obj) => obj.CauseFailure(),
                 Expect =
                 {
                     exception => exception.Message == "Something failed!",
                     exception => exception.ErrorCode == 17
-                },
-        };
+                }
+            };
+        }
     }
 
     public class FailingExample

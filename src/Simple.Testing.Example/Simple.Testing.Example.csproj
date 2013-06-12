@@ -54,9 +54,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Simple.Testing.Framework\Simple.Testing.Framework.csproj">
-      <Project>{A6E67E2A-2A26-4016-BE26-D6F3141729D9}</Project>
-      <Name>Simple.Testing.Framework</Name>
+    <ProjectReference Include="..\Simple.Testing.ClientFramework\Simple.Testing.ClientFramework.csproj">
+      <Project>{AFE5EA9F-2829-4D63-9850-34803552C793}</Project>
+      <Name>Simple.Testing.ClientFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

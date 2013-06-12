@@ -5,16 +5,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{A6E67E2A-2A26-4016-BE26-D6F3141729D9}</ProjectGuid>
+    <ProjectGuid>{AFE5EA9F-2829-4D63-9850-34803552C793}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Simple.Testing.Framework</RootNamespace>
-    <AssemblyName>Simple.Testing.Framework</AssemblyName>
+    <RootNamespace>Simple.Testing.ClientFramework</RootNamespace>
+    <AssemblyName>Simple.Testing.ClientFramework</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
-	
-</PropertyGroup>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,51 +31,20 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <SignAssembly>false</SignAssembly>
-  </PropertyGroup>
-  <PropertyGroup>
-    <AssemblyOriginatorKeyFile>simple.snk</AssemblyOriginatorKeyFile>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ISpecificationRunListener.cs" />
-    <Compile Include="ISpecificationGenerator.cs" />
-    <Compile Include="Linq\ExpressionVisitor.cs" />
-    <Compile Include="NamedMethodsGenerator.cs" />
-    <Compile Include="OnTypeGenerator.cs" />
-    <Compile Include="RootGenerator.cs" />
-    <Compile Include="extensions.cs" />
-    <Compile Include="PartialApplyicationVisitor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RunResult.cs" />
-    <Compile Include="SimpleRunner.cs" />
-    <Compile Include="SpecificationInfo.cs" />
-    <Compile Include="SpecificationRunner.cs" />
-    <Compile Include="SpecificationToRun.cs" />
-    <Compile Include="TypeReader.cs" />
+    <Compile Include="SpecificationTemplates.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\PowerAssertForked\PowerAssertForked.csproj">
-      <Project>{7E9D2DB4-78FE-41BD-9566-15F68D42E4D9}</Project>
-      <Name>PowerAssertForked</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Simple.Testing.ClientFramework\Simple.Testing.ClientFramework.csproj">
-      <Project>{AFE5EA9F-2829-4D63-9850-34803552C793}</Project>
-      <Name>Simple.Testing.ClientFramework</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="simple.snk" />
-  </ItemGroup>
-  <Import Project="..\..\wraps\openwrap\build\OpenWrap.CSharp.targets" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

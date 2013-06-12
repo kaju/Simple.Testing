@@ -35,3 +35,6 @@ ldeploy.bat
 /_cache
 /stdout.txt
 Simple.Testing-*.wrap
+*.ncrunchsolution
+*.ncrunchsolution.user
+*~
